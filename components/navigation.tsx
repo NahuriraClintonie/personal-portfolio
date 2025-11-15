@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import ThemeToggle from "@/components/theme-toggle"
+
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,7 +23,7 @@ const Navigation = () => {
           <a href="#" className="text-xl font-bold gradient-text">
             NC
           </a>
-          
+
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8">
             {links.map((link) => (
@@ -35,14 +37,18 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-card transition-colors"
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden p-2 rounded-lg hover:bg-card transition-colors"
+        >
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
         </div>
+
 
         {/* Mobile Menu */}
         {isOpen && (
