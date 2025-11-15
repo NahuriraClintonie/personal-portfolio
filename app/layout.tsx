@@ -11,20 +11,24 @@ export const metadata: Metadata = {
   generator: 'Nahurira Clintonie',
   icons: {
     icon: [
+      // Light mode icon
       {
-        url: '/icon-light-32x32.png',
+        url: 'https://api.iconify.design/ph/user-light.svg',
         media: '(prefers-color-scheme: light)',
       },
+      // Dark mode icon
       {
-        url: '/icon-dark-32x32.png',
+        url: 'https://api.iconify.design/ph/user-bold.svg',
         media: '(prefers-color-scheme: dark)',
       },
+      // Main favicon (SVG)
       {
-        url: '/icon.svg',
+        url: 'https://api.iconify.design/ph/code-bold.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    // Apple touch icon
+    apple: 'https://api.iconify.design/ph/code.svg',
   },
 }
 
