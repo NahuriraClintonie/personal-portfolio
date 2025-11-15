@@ -48,25 +48,28 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 gradient-text">Experience</h2>
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 gradient-text text-center">Experience</h2>
         
-        <div className="space-y-8">
+        <div className="space-y-10">
           {experiences.map((exp, index) => (
-            <div key={index} className="glass-effect p-6 md:p-8 rounded-lg hover:bg-card/80 transition-colors">
+            <div
+              key={index}
+              className="glass-effect p-6 md:p-8 rounded-2xl hover:bg-card/80 transition-all duration-300 shadow-md hover:shadow-xl border border-border/20"
+            >
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">{exp.title}</h3>
-                  <p className="text-secondary font-medium">{exp.company}</p>
+                  <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-1">{exp.title}</h3>
+                  <p className="text-secondary font-medium text-sm md:text-base">{exp.company}</p>
                 </div>
-                <p className="text-sm text-muted-foreground whitespace-nowrap">{exp.period}</p>
+                <p className="text-sm text-muted-foreground whitespace-nowrap md:text-right">{exp.period}</p>
               </div>
               
               <ul className="space-y-2">
                 {exp.responsibilities.map((resp, idx) => (
                   <li key={idx} className="text-muted-foreground flex gap-3">
-                    <span className="text-secondary font-bold">•</span>
-                    <span>{resp}</span>
+                    <span className="text-accent font-bold text-lg">•</span>
+                    <span className="text-sm md:text-base leading-relaxed">{resp}</span>
                   </li>
                 ))}
               </ul>
