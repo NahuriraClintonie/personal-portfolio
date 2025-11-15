@@ -1,27 +1,35 @@
 const About = () => {
   return (
-    <section id="about" className="py-24 px-6 bg-gradient-to-b from-card/60 via-card/50 to-card/40 dark:from-card/20 dark:via-card/15 dark:to-card/10 rounded-xl shadow-lg">
+    <section
+      id="about"
+      className="py-24 px-6 bg-gradient-to-b from-card/70 via-card/60 to-card/50 dark:from-card/25 dark:via-card/20 dark:to-card/15 rounded-xl shadow-lg"
+      style={{ backgroundColor: 'var(--card)' }}
+    >
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-10 gradient-text">About Me</h2>
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-10 gradient-text">
+          About Me
+        </h2>
+
         <div className="space-y-6 text-lg text-foreground/85 leading-relaxed">
           <p>
-            I'm a Software Engineer with 3+ years of experience in Full Stack Web Development, AI & Machine Learning, DevOps, and Cloud Technologies. I'm passionate about building scalable applications, AI-driven systems, and modern, user-centric web experiences.
+            I'm a Software Engineer with 3+ years of experience in Full Stack Web Development, AI & Machine Learning, DevOps, and Cloud Technologies. I build scalable, intelligent systems with user-centric design.
           </p>
           <p>
-            I hold a Bachelor of Science in Software Engineering from Makerere University's College of Computing and Information Sciences, where I developed strong foundations in software design, data structures, and artificial intelligence. My academic journey, combined with practical industry experience, has shaped my approach to solving complex technical challenges.
+            Bachelor of Science in Software Engineering from Makerere University, combining strong foundations in software design, data structures, and AI with practical industry experience.
           </p>
           <p>
-            At Pahappa Company Limited, I progressed from an intern to a Junior Developer, demonstrating strong capabilities in web and mobile development, agile methodologies, and team leadership. My current role at AIBOS Uganda as both a Web & AI Engineer and Project Management Officer allows me to lead AI-driven projects, mentor junior developers, and drive innovation in intelligent systems.
+            At Pahappa Company Limited, I grew from intern to Junior Developer. Currently at AIBOS Uganda as Web & AI Engineer and Project Management Officer, leading AI projects and mentoring teams.
           </p>
           <p>
-            Beyond code, I'm an enthusiast of technology blogging, where I share insights and tutorials helping others learn. I'm committed to continuous learning, exploring emerging technologies like cloud platforms and DevOps practices, and leveraging technology to solve real-world problems.
+            Tech blogging and continuous learning are passions of mine — exploring cloud platforms, DevOps, and emerging AI technologies.
           </p>
+
           <div className="pt-6 space-y-3">
             <p className="text-base">
               <span className="font-semibold text-secondary">Motto:</span> "Embrace Challenges, Drive Innovation."
             </p>
             <p className="text-base">
-              <span className="font-semibold text-secondary">Interests:</span> Cloud Technologies, DevOps, Machine Learning, IoT, and Healthcare Innovation
+              <span className="font-semibold text-secondary">Interests:</span> Cloud Technologies, DevOps, Machine Learning, IoT, Healthcare Innovation
             </p>
           </div>
         </div>
