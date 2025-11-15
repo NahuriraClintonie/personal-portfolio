@@ -33,26 +33,24 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-20 px-4 bg-card/30">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 gradient-text">Projects</h2>
+    <section id="projects" className="py-20 px-4 bg-card/20">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 gradient-text text-center">Projects</h2>
         
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="glass-effect p-6 rounded-lg hover:bg-card/80 transition-all duration-300 hover:shadow-lg"
+              className="glass-effect p-6 md:p-8 rounded-2xl hover:bg-card/70 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl border border-border/20"
             >
-              <h3 className="text-lg font-bold text-foreground mb-2">{project.name}</h3>
-              <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                {project.description}
-              </p>
+              <h3 className="text-lg md:text-xl font-bold text-foreground mb-3">{project.name}</h3>
+              <p className="text-muted-foreground mb-4 text-sm md:text-base leading-relaxed">{project.description}</p>
               
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {project.tech.map((tech, idx) => (
                   <span
                     key={idx}
-                    className="text-xs px-3 py-1 bg-secondary/20 text-secondary rounded-full font-medium"
+                    className="text-xs md:text-sm px-3 py-1 bg-secondary/20 text-secondary rounded-full font-medium"
                   >
                     {tech}
                   </span>
