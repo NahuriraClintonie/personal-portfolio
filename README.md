@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nahurira Clintonie – Software Engineer Portfolio
 
-## Getting Started
+Welcome to my personal portfolio repository! This is where I build and showcase my professional presence online — my projects, skills, experience, and my journey as a software engineer.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🧑‍💻 About Me
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Hi, I’m **Nahurira Clintonie**, a passionate Software Engineer dedicated to crafting clean, scalable, and performant web applications. I specialize in full-stack development, leveraging technologies like **Next.js**, **TypeScript**, **Node.js**, **Express**, and more.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 📍 Based in Kampala, Uganda    
+- 🎯 On a mission: to solve real-world problems with code and collaborate on impactful projects  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You can learn more about my professional background on my [LinkedIn](https://www.linkedin.com/in/clinton-nahurira/)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Features & Highlights
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Here’s what makes this portfolio special:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Modern tech stack**: Built with **Next.js** + **TypeScript** for type-safe, server-rendered React.  
+- **Responsive design**: Looks great on desktop, tablet, and mobile devices.  
+- **Projects**: A curated showcase of my best and most meaningful work.  
+- **Downloadable CV**: Visitors can download my CV directly from the site.  
+- **Contact form**: A form that lets people contact me.  
+- **Clean architecture**: Component-driven UI, reusable design system, and thoughtful folder structure for easy maintenance and scalability.  
+- **Accessible & performant**: Optimized for fast load times and good user experience.
 
-## Deploy on Vercel
+## 🛠️ Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Here are the main technologies I work with:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Frontend**: Next.js, React, TypeScript  
+- **Backend / API**: Node.js, Express  
+- **Styling**: Tailwind CSS, CSS Modules (or whatever styling tech you choose)  
+- **State Management / Utilities**: React hooks, Zustand / Redux (or whichever you use)  
+- **Version Control**: Git + GitHub  
+- **Deployment**: Vercel / Netlify (or your deployment target)  
+
+
+## ✉️ Contact Me
+
+If you’d like to get in touch, feel free to:
+
+- Send me a message via the **contact form** on my portfolio site   
+- Connect with me on **[LinkedIn](https://www.linkedin.com/in/clinton-nahurira/)**  
+- Or just drop me an email on **nahuriraclinton256@gmail.com** — I’d love to hear about your ideas, job opportunities, or how we might work together.
