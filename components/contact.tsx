@@ -10,6 +10,7 @@ const Contact = () => {
     subject: '',
     message: ''
   })
+
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -20,7 +21,6 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('loading')
-
     try {
       const response = await fetch('/api/send-email', {
         method: 'POST',
@@ -31,129 +31,71 @@ const Contact = () => {
       if (response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
-        setTimeout(() => setStatus('idle'), 5000)
       } else {
         setStatus('error')
-        setTimeout(() => setStatus('idle'), 5000)
       }
     } catch (error) {
       console.error('Error sending email:', error)
       setStatus('error')
+    } finally {
       setTimeout(() => setStatus('idle'), 5000)
     }
   }
 
   return (
-    <section id="contact" className="py-20 px-4 bg-card/30">
+    <section id="contact" className="py-24 px-6 bg-secondary/10 dark:bg-secondary/20 rounded-xl shadow-inner">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">Let's Connect</h2>
-        <p className="text-muted-foreground mb-12 text-lg">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 gradient-text">
+          Let's Connect
+        </h2>
+        <p className="text-foreground/80 mb-12 text-lg">
           Have a project in mind or want to discuss opportunities? I'd love to hear from you!
         </p>
 
+        {/* Contact Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <a
+          <ContactCard
+            icon={Mail}
+            title="Email"
+            value="nahuriraclinton256@gmail.com"
             href="mailto:nahuriraclinton256@gmail.com"
-            className="glass-effect p-6 rounded-lg hover:bg-card/80 transition-colors group text-center"
-          >
-            <Mail className="w-8 h-8 mx-auto mb-3 text-secondary group-hover:text-accent transition-colors" />
-            <h3 className="font-bold mb-2">Email</h3>
-            <p className="text-sm text-muted-foreground">nahuriraclinton256@gmail.com</p>
-          </a>
-
-          <a
+          />
+          <ContactCard
+            icon={Phone}
+            title="Phone"
+            value="+256-773-962-261"
             href="tel:+256773962261"
-            className="glass-effect p-6 rounded-lg hover:bg-card/80 transition-colors group text-center"
-          >
-            <Phone className="w-8 h-8 mx-auto mb-3 text-secondary group-hover:text-accent transition-colors" />
-            <h3 className="font-bold mb-2">Phone</h3>
-            <p className="text-sm text-muted-foreground">+256-773-962-261</p>
-          </a>
-
-          <div className="glass-effect p-6 rounded-lg text-center">
-            <MapPin className="w-8 h-8 mx-auto mb-3 text-secondary" />
-            <h3 className="font-bold mb-2">Location</h3>
-            <p className="text-sm text-muted-foreground">Wakaliga, Kampala, Uganda</p>
-          </div>
+          />
+          <ContactCard
+            icon={MapPin}
+            title="Location"
+            value="Wakaliga, Kampala, Uganda"
+          />
         </div>
 
-        <div className="glass-effect p-8 md:p-12 rounded-lg">
+        {/* Contact Form */}
+        <div className="glass-effect p-8 md:p-12 rounded-xl shadow-md bg-background/80 dark:bg-card/60">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 bg-input border border-border/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground placeholder-muted-foreground"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 bg-input border border-border/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground placeholder-muted-foreground"
-                  placeholder="your@email.com"
-                />
-              </div>
+              <InputField name="name" label="Name" value={formData.name} onChange={handleChange} placeholder="Your name" />
+              <InputField name="email" label="Email" value={formData.email} onChange={handleChange} placeholder="your@email.com" />
             </div>
-
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 bg-input border border-border/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground placeholder-muted-foreground"
-                placeholder="What's this about?"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={6}
-                className="w-full px-4 py-2 bg-input border border-border/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground placeholder-muted-foreground resize-none"
-                placeholder="Tell me about your project..."
-              ></textarea>
-            </div>
+            <InputField name="subject" label="Subject" value={formData.subject} onChange={handleChange} placeholder="What's this about?" />
+            <TextareaField name="message" label="Message" value={formData.message} onChange={handleChange} placeholder="Tell me about your project..." />
 
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="w-full px-8 py-3 bg-secondary text-secondary-foreground font-semibold rounded-lg hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full py-3 bg-primary text-primary-foreground font-semibold rounded-xl hover:bg-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {status === 'loading' ? 'Sending...' : 'Send Message'}
             </button>
 
             {status === 'success' && (
-              <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-300 text-sm">
-                Message sent successfully! I'll get back to you soon.
-              </div>
+              <StatusMessage type="success" message="Message sent successfully! I'll get back to you soon." />
             )}
-
             {status === 'error' && (
-              <div className="p-4 bg-destructive/20 border border-destructive/50 rounded-lg text-destructive text-sm">
-                Failed to send message. Please try again or email me directly.
-              </div>
+              <StatusMessage type="error" message="Failed to send message. Please try again or email me directly." />
             )}
           </form>
         </div>
@@ -161,5 +103,61 @@ const Contact = () => {
     </section>
   )
 }
+
+// Reusable Components
+const ContactCard = ({ icon: Icon, title, value, href }: any) => (
+  href ? (
+    <a href={href} className="glass-effect p-6 rounded-xl text-center hover:scale-105 transition-transform">
+      <Icon className="w-8 h-8 mx-auto mb-2 text-secondary" />
+      <h3 className="font-semibold mb-1">{title}</h3>
+      <p className="text-sm text-foreground/70">{value}</p>
+    </a>
+  ) : (
+    <div className="glass-effect p-6 rounded-xl text-center">
+      <Icon className="w-8 h-8 mx-auto mb-2 text-secondary" />
+      <h3 className="font-semibold mb-1">{title}</h3>
+      <p className="text-sm text-foreground/70">{value}</p>
+    </div>
+  )
+)
+
+const InputField = ({ name, label, value, onChange, placeholder }: any) => (
+  <div>
+    <label className="block text-sm font-medium mb-2">{label}</label>
+    <input
+      name={name}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      required
+      className="w-full px-4 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder-foreground/50 transition-colors"
+    />
+  </div>
+)
+
+const TextareaField = ({ name, label, value, onChange, placeholder }: any) => (
+  <div>
+    <label className="block text-sm font-medium mb-2">{label}</label>
+    <textarea
+      name={name}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      rows={5}
+      required
+      className="w-full px-4 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder-foreground/50 resize-none transition-colors"
+    />
+  </div>
+)
+
+const StatusMessage = ({ type, message }: any) => (
+  <div className={`p-4 rounded-lg text-sm border ${
+    type === 'success'
+      ? 'bg-green-500/20 border-green-500 text-green-300'
+      : 'bg-destructive/20 border-destructive text-destructive-foreground'
+  }`}>
+    {message}
+  </div>
+)
 
 export default Contact
